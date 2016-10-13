@@ -21,12 +21,14 @@ public class Main {
 		Evaluation eval1 = TextCategorization.generateEvaluation(data,j48, 0.7);
 		TextCategorization.printEvaluation(eval1);
 		
-		TextCategorization.serializeClassifier("classifier.model", TextCategorization.generateModel(data, new J48()) );
+		
 		
 		System.out.println("SMO model");
 		SMO smo = new SMO();
 		Evaluation eval2 = TextCategorization.generateEvaluation(data,smo, 0.7);
 		TextCategorization.printEvaluation(eval2);
+		
+		TextCategorization.serializeClassifier("classifier.model", TextCategorization.generateModel(data, new SMO()) );
 		
 		System.out.println("NaiveBayes model");
 		NaiveBayes naiveBayes = new NaiveBayes();
